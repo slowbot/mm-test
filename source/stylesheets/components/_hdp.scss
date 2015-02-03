@@ -1,0 +1,438 @@
+/* Overall Diagram */
+
+.lowerbody .hadoop_arch .cell {
+  display: table-cell;
+  width: auto;
+}
+
+.hadoop_arch { 
+  word-wrap:normal; 
+  word-break:normal; 
+  margin: 0 auto;
+  font-size: 16px;
+  line-height: 1em;
+}
+
+.maintable { 
+  position: relative;
+  //overflow: hidden;
+}
+
+/* Customize Diagram based on type */
+.lo .hilevel { 
+  display: none;
+}
+
+.hi .lowlevel { 
+  display: none;
+}
+
+/* Sections */
+.hadoop_arch .sec { 
+  font-size: 80%; 
+  position: relative; 
+  background-color: #e6f2df; 
+  border: 1px solid #c2e0b0; 
+  border-radius: 5px; 
+  padding: 0;
+
+  .body { 
+    padding: 5px; 
+    text-align: center; 
+  }
+
+  .label { 
+    width: 100%; 
+    text-transform: uppercase; 
+    text-align: center; 
+    color: #fff; 
+    min-height: 30px;
+    font-weight: bold; 
+    font-size: 90%; 
+    background-color: #69be28; 
+    padding: 5px 8px; 
+    border-radius: 5px 5px 0 0; 
+  }
+
+  &.side {
+    float: left;
+    width: 15%; 
+    min-width:100px;
+    margin: 0 .5%;
+    
+    .label { 
+      margin-bottom: 50px; 
+    }
+
+    &.governance .label { 
+      margin-bottom: 28px; 
+    }
+  }
+
+  &.external { 
+    display: none; 
+    background-color: #f2f0ef; 
+    border-color: #ccc; 
+    padding: 10px; 
+  }
+
+  &:hover,
+  &.hilight { 
+    background-color: #fee8d4; 
+    border-color: #e17000;
+
+    .label { 
+      background-color: #e17000; 
+    }
+  }
+
+  :hover .component,
+  &.hilight .component { 
+    border-color: #e17000;
+  }
+}
+
+.hadoop_arch .core { 
+  float: left;
+  width: 50%;
+  margin: 0 .5%;
+}
+
+.hadoop_arch .purpose { 
+  font-weight: bold; 
+  text-align: center; 
+  text-overflow: ellipsis; 
+  overflow: hidden; 
+}
+
+
+/* Low-Level Components */
+.hadoop_arch .component { 
+  position: relative; 
+  background-color: #fff; 
+  border-radius: 5px; 
+  padding: 5px 1px; 
+  margin-bottom: 5px; 
+  border: 1px solid #c2e0b0;
+
+  &.hilight { 
+    background-color: #e17000; 
+    border-color: #b05801; 
+    color: #fff; 
+  }
+  
+  &.hilight a { 
+    color: #fff 
+  }
+}
+
+.hadoop_arch .sub-components { 
+  padding-left: 0;
+
+  li { 
+    list-style-type: none; 
+    text-align: center; 
+    text-overflow: ellipsis; 
+    overflow: hidden; 
+
+    a { 
+      text-decoration: none;  
+    }
+  }
+}
+
+#ha_yarn { 
+  position: relative; 
+  z-index: 4;
+
+  &.component { 
+    margin: 5px; 
+    background-color: #44697d; 
+    color: #fff; 
+    height: 70px; 
+    padding-top: 25px; 
+    margin-top: -20px;
+  }
+
+  &.component.hilight { 
+    background-color: #e17000; 
+    border-color: #b05801; 
+    color: #fff; 
+  }
+
+  &.component.hilight a { 
+    color: #fff;
+  }
+
+  .purpose a { 
+    position:relative; 
+    display:inline-block; 
+    padding-top:5px; 
+    color: #fff; 
+    text-decoration:none; 
+    font-size:130%; 
+  }
+}
+
+#ha_hdfs {
+  &.component { 
+    height: 100px; 
+    padding-top: 30px; 
+    background: #fff url(../images/hdfs_backdrop.png) no-repeat; background-size: 100% 100%;  font-size:120%; }
+  
+  .purpose { 
+    background-color: rgba(255,255,255,.5) 
+  }
+}
+
+#data_management { 
+  padding-top: 0;
+  
+  .label { 
+    top: auto; 
+    bottom: 0; 
+    border-radius: 0 0 5px 5px; 
+  }
+
+  .body { 
+    padding-top: 20px; 
+    border-radius: 5px 5px 0 0; 
+  }
+}
+
+#ha_data_access { 
+  margin-bottom:8px;
+  
+  .body { 
+    height:150px; 
+    padding:0; 
+  }
+}
+
+/* Data Access */
+.hadoop_arch {
+  .apps { 
+    position: relative; 
+    z-index: 5; 
+    border-spacing: 5px; 
+    border-collapse: separate; 
+    width: 100%; 
+    font-size: 100%;
+
+    .component {
+      float: left;
+      height:110px; 
+      width: 12%;
+      margin: 0 .2%;
+    }
+
+    li { 
+      font-size: 90%; 
+    }
+
+    .others { 
+      background-color: #f6f6f6; 
+      border: 1px dashed #ddd; 
+    }
+
+    .more { 
+      display: none; 
+    }
+  }
+
+  .plug_below .sub-components:after { 
+    display: block; 
+    position: absolute; 
+    bottom: -15px; 
+    left:2px; 
+    width: 100%; 
+    height: 15px; 
+    text-align: 
+    center; background: url(../images//yarn_plugs.png) top center no-repeat; 
+    content: " "; 
+  }
+
+  .plug { 
+    position: absolute; 
+    bottom: -21px; 
+    width: 100%; 
+    text-align: center; 
+    margin-left: -4px; 
+  }
+
+  .on_tez { 
+    background-image:url(../images/arch_tez.png); 
+    background-position:center bottom; 
+    background-repeat:no-repeat; 
+  }
+
+  .on_slider { 
+    background-image:url(../images/arch_slider.png); 
+    background-position:center bottom; 
+    background-repeat:no-repeat; 
+  }
+
+  .on_slider_tez { 
+    background-image:url(../images/arch_tez-slider.png); 
+    background-position:center bottom; 
+    background-repeat:no-repeat; 
+  }
+}
+
+@media only screen and (max-width: 900px)    {
+  .hadoop_arch { }
+  .hadoop_arch .side.sec {    }
+  .hadoop_arch .apps .sub-components td { }
+  .hadoop_arch .plug_below .sub-components:after { }
+  .hadoop_arch .apps td.solr { 
+    display: none 
+  }
+}
+
+@media only screen and (max-width: 800px)   {
+  .hadoop_arch .apps td.others { 
+    display: none 
+  }
+}
+
+@media only screen and (max-width: 700px)                             {
+  .hadoop_arch .data_access .body { 
+    height: 138px 
+  }
+  .hadoop_arch .side.sec .component { 
+    min-height: 200px 
+  }
+  #ha_ops .component { 
+    min-height: 98px 
+  }
+  .hadoop_arch .purpose { 
+    font-size: 85% 
+  }
+  .hadoop_arch .sub-components { 
+    display: none 
+  }
+  #ha_yarn { 
+    padding-top: 25px 
+  }
+  .hadoop_arch .apps .component { 
+    height: 100px; 
+    min-width: 30px; 
+  }
+  .hadoop_arch .apps .purpose { 
+    float: left; 
+    text-align: left; 
+    position: relative; 
+    left: 17px; 
+    -webkit-transform: rotate(90deg); 
+    -moz-transform: rotate(90deg); 
+    -ms-transform: rotate(90deg); 
+    -o-transform: rotate(90deg); 
+    transform: rotate(90deg);
+
+    /* Rotate from top left corner (not default) */ 
+    -webkit-transform-origin: 0 0; 
+    -moz-transform-origin: 0 0; 
+    -ms-transform-origin: 0 0; 
+    -o-transform-origin: 0 0; 
+    transform-origin: 0 0; 
+  }
+}
+
+/* How can I apply the Media Queries to an artificially small version of the image? */
+.min .side.sec .component { 
+  min-height: 200px 
+}
+
+.min .side.sec { 
+  width: 12%; 
+  min-width:90px; 
+}
+.min .sec:hover { 
+  background-color: #e6f2df; 
+  border-color: #c2e0b0; 
+}
+.min .sec:hover .label { 
+  background-color: #69be28 
+}
+.min .sec:hover .component { 
+  border-color: #c2e0b0 
+}
+.min #ha_ops .component { 
+  min-height: 98px 
+}
+.min .purpose { 
+  font-size: 85%; 
+  font-weight:normal; 
+}
+.min .sub-components { 
+  display: none 
+}
+.min .ingest .the_extra { 
+  display: none 
+}
+.min .sec.side .label { 
+  margin-bottom: 20px 
+}
+.min .sec.side.ingest .label { 
+  margin-bottom: 20px 
+}
+.min #ha_yarn { 
+  padding-top: 25px; 
+  height: 70px; 
+}
+.min #ha_yarn .purpose a { 
+  text-decoration: none; 
+  font-size:120%; top:0px; 
+}
+.min #ha_yarn .purpose a:hover { 
+  color: #fff 
+}
+.min #ha_data_access .body { 
+  height:115px; 
+}
+.min #ha_hdfs a { 
+  color: #555; 
+  text-decoration: none; 
+}
+.min #ha_hdfs a:hover { 
+  color: #555; 
+  text-decoration: none; 
+}
+.min .apps td.nosql { 
+  display: none 
+}
+.min .apps .component { 
+  height: 80px;
+  min-width: 30px; 
+}
+.min .apps .purpose { 
+  float: left; 
+  text-align: left; 
+  position: relative; 
+  left: 20px; 
+  -webkit-transform: rotate(90deg); 
+  -moz-transform: rotate(90deg); 
+  -ms-transform: rotate(90deg); 
+  -o-transform: rotate(90deg); 
+  transform: rotate(90deg); 
+  white-space:nowrap;
+  
+  /* Rotate from top left corner (not default) */ 
+  -webkit-transform-origin: 0 0; 
+  -moz-transform-origin: 0 0; 
+  -ms-transform-origin: 0 0; 
+  -o-transform-origin: 0 0; 
+  transform-origin: 0 0; 
+}
+
+.min {
+  .on_tez { 
+    background-image:none; 
+  }
+  .on_slider { 
+    background-image:none; 
+  }
+  .on_slider_tez { 
+    background-image:none; 
+  }
+}
